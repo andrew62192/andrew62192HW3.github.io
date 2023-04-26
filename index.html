@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>網站當機中...</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 72px;
+            font-weight: bold;
+            color: #f00;
+            margin-bottom: 50px;
+        }
+
+        button {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0062cc;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>網站當機中...</h1>
+    <p>我們正在修復問題，請稍等片刻。</p>
+    <div class="countdown">5</div>
+    <button onclick="goBack()">返回</button>
+</div>
+<script>
+    // 設定倒數計時器
+    var seconds = 5;
+    var countdown = setInterval(function() {
+        seconds--;
+        document.querySelector('.countdown').textContent = seconds;
+        if (seconds <= 0) {
+            clearInterval(countdown);
+            document.querySelector('.container').innerHTML = '<h1>請嘗試重新連接</h1><p>感謝您的耐心等待！</p><button onclick="goBack()">返回twitch</button>';
+        }
+    }, 1000);
+
+    // 返回上一頁
+    function goBack() {
+        window.location.href = 'https://www.twitch.tv/';
+    }
+</script>
+</body>
+</html>
